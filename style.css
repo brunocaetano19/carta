@@ -1,0 +1,539 @@
+@font-face {
+    font-family: 'Chopin Script';
+    src: url('./ChopinScript.ttf');
+}
+
+@font-face {
+    font-family: 'Stnicholas';
+    src: url('./stnicholas.ttf');
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('../cartinhanatal/Lora-VariableFont_wght.ttf');
+}
+
+
+@font-face {
+    font-family: 'GreatVibes';
+    src: url('./GreatVibes-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Kalam';
+    src: url('./Kalam-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KalamLight';
+    src: url('./Kalam-Light.ttf');
+}
+
+body {
+    /*font-family: sans-serif;*/
+    font-family: 'Lora';
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    background-color: #0c81f7c4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    color: #ffffff;
+    margin: 0;
+    padding: 0 15px;
+    background-color: #0c81f7c4;
+}
+
+@media only screen and (max-width: 800px) {
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            padding: 10px;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        ul {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .creaft {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 20px;
+        }
+        
+
+        .foto1 {
+            width: 80%; /* Ajuste a largura da imagem para telas pequenas */
+            margin: 0 auto; /* Centraliza a imagem */
+        }
+
+        .cartas-carousel {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .ver-todas {
+            margin-top: 20px;
+        }
+
+        .main {
+            flex-direction: column; /* Empilha os elementos verticalmente em telas pequenas */
+        }
+
+        .foto {
+            width: 80%; /* Ajusta a largura da imagem para telas pequenas */
+            margin: 0 auto; /* Centraliza a imagem */
+        }
+
+        .tituloh1 {
+            font-size: 10px;
+            font-family: 'GreatVibes';
+            font-style: italic;
+            font-weight: 300;
+            text-align: center;
+        }          
+        
+        /* Adicione o estilo para a grade de imagens */
+        .grid-container {
+            display: grid; /* Define o contêiner como uma grade */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Define as colunas da grade como automáticas e com no mínimo 300px de largura */
+            grid-gap: 20px; /* Define o espaçamento entre as imagens */
+            padding: 20px; /* Define o preenchimento do contêiner */
+            
+        }
+
+    .grid-item {
+        position: relative; /* Define a posição do elemento como relativa */
+    }
+
+    .cartas {
+        width: 100%; /* Define a largura da imagem como 100% do elemento */
+        height: auto; /* Define a altura da imagem como automática */
+        cursor: pointer; /* Define o cursor como um ponteiro ao passar o mouse */
+    }
+
+    .texto {
+        position: absolute; /* Define a posição do texto como absoluta */
+        bottom: -25px; /* Define a posição do texto como no fundo do elemento */
+        left: 0; /* Define a posição do texto como na esquerda do elemento */
+        width: 100%; /* Define a largura do texto como 100% do elemento */
+        background-color: rgba(0, 0, 0, 0.5); /* Define a cor de fundo do texto como preta com 50% de opacidade */
+        color: white; /* Define a cor do texto como branca */
+        padding: 10px; /* Define o preenchimento do texto */
+        text-align: center; /* Define o alinhamento do texto como centralizado */
+    }
+
+    /* Adicione o estilo para o modal */
+    .modal {
+        display: none; /* Define o modal como oculto por padrão */
+        position: fixed; /* Define a posição do modal como fixa */
+        z-index: 1; /* Define o índice de empilhamento do modal como 1 */
+        left: 0; /* Define a posição do modal como na esquerda da tela */
+        top: 0; /* Define a posição do modal como no topo da tela */
+        width: 100%; /* Define a largura do modal como 100% da tela */
+        height: 100%; /* Define a altura do modal como 100% da tela */
+        overflow: auto; /* Define o estouro do modal como automático */
+        background-color: rgba(0, 0, 0, 0.8); /* Define a cor de fundo do modal como preta com 80% de opacidade */
+    }
+
+    .modal-content {
+        margin: auto; /* Define a margem da imagem ampliada como automática */
+        display: block; /* Define a exibição da imagem ampliada como em bloco */
+        width: 80%; /* Define a largura da imagem ampliada como 80% do modal */
+        max-width: 700px; /* Define a largura máxima da imagem ampliada como 700px */
+    }
+
+    .close {
+        position: absolute; /* Define a posição do botão de fechar como absoluta */
+        top: 15px; /* Define a posição do botão de fechar como 15px do topo do modal */
+        right: 35px; /* Define a posição do botão de fechar como 35px da direita do modal */
+        color: white; /* Define a cor do botão de fechar como branca */
+        font-size: 40px; /* Define o tamanho da fonte do botão de fechar como 40px */
+        font-weight: bold; /* Define o peso da fonte do botão de fechar como negrito */
+        transition: 0.3s; /* Define a transição do botão de fechar como 0.3s */
+    }
+
+    .close:hover, .close:focus {
+        color: red; /* Define a cor do botão de fechar como vermelha ao passar o mouse ou ao focar */
+        text-decoration: none; /* Remove o sublinhado do botão de fechar */
+        cursor: pointer; /* Define o cursor como um ponteiro ao passar o mouse */
+    }
+}
+
+nav {
+    display: flex;
+}
+
+ul {
+    display: inline;
+    margin-left: 30px;
+    font-size: 25px;
+}
+
+.crea {
+    margin: 0;
+}
+
+.creaft {
+    width: 200px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.foto {
+    width: 50%;
+    margin: 0;
+}
+
+.main1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.foto1 {
+    width: 100%;
+    height: 450px;
+    margin: 0;
+}
+
+.main2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.conteudo-doacao {
+    margin-top: 20px;
+}
+p {
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+h1,h3, ul, li, p {
+    color: #ffffff;
+    background-image: url(./efeito.gif);
+    background-size: auto;
+    background-position: center top; /* Ajuste a posição conforme necessário */
+}
+
+h2{
+    color: #ffffff;
+    background-image: url(./efeito.gif);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center top; /* Ajuste a posição conforme necessário */
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 0;
+
+}
+
+.cartas-carousel {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.cartas {
+    width: 100%;
+}
+
+.ver-todas {
+    color: #0c81f7c4;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+    /* Adiciona estilo para a classe 'adote' */
+    .adote {
+        display: flex;
+        align-items: center;
+        margin: 20px 0; /* Adapte a margem conforme necessário */
+        animation: slideText 15s linear infinite; /* Ajuste a duração conforme necessário */
+    }
+
+    /* Adiciona estilo para a classe 'ftpapainoel' */
+    
+    .ftpapainoel {
+        margin-right: 20px;
+        max-width: 30%; /* Garante que a imagem não ultrapasse o contêiner */
+    }
+
+    /* Adiciona estilo para a classe 'blinking' */
+    .blinking.adote-text {
+        margin: 0;
+    }
+
+/* Adiciona animação para o texto passando pela tela */
+/*.adote {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: slideText 20s linear infinite; /* Ajuste a duração conforme necessário */
+   /* 
+}*/
+
+@keyframes slideText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Adiciona animação de piscar colorido para as letras */
+.blinking {
+    animation: blink 3s infinite; /* Ajuste a duração conforme necessário */
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        color: #ff0000; /* Cor vermelha */
+    }
+    25%, 75% {
+        color: #ffffff; /* Cor verde */
+    }
+}
+
+
+@media (min-width: 1024px) {
+        /* Adiciona estilo para a classe 'adote' */
+        .adote {
+            display: flex;
+            align-items: center;
+            margin: 20px 0; /* Adapte a margem conforme necessário */
+            animation: slideText 15s linear infinite; /* Ajuste a duração conforme necessário */
+            font-family: 'KalamLight';
+            font-size: 45px;
+        }
+
+        #texto{
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+                      
+    }
+
+  .tituloh1 {
+    font-size: 75px;
+    font-family: 'GreatVibes';
+    font-style: italic;
+    font-weight: 300;
+  }
+
+.navegacao{
+    text-align: center;
+}
+
+#fotonav{
+    margin-left: 25px;
+}
+
+
+.grid-container {
+    grid-template-columns: repeat(auto-fill, 100%);
+    grid-gap: 0;
+  }
+
+.grid-item {
+    position: relative; /* Define a posição do elemento como relativa */
+    margin: 55px;
+    min-width: 200px;
+}
+
+  
+.cartas {
+    width: 100%; /* Define a largura da imagem como 100% do elemento */
+    height: auto; /* Define a altura da imagem como automática */
+    cursor: pointer; /* Define o cursor como um ponteiro ao passar o mouse */
+}
+
+
+  
+.texto {
+    position: absolute; /* Define a posição do texto como absoluta */
+    bottom: -75px; /* Define a posição do texto como no fundo do elemento */
+    left: 0; /* Define a posição do texto como na esquerda do elemento */
+    width: 100%; /* Define a largura do texto como 100% do elemento */
+    background-color: rgba(0, 0, 0, 0.5); /* Define a cor de fundo do texto como preta com 50% de opacidade */
+    color: white; /* Define a cor do texto como branca */
+    padding: 10px; /* Define o preenchimento do texto */
+    text-align: center; /* Define o alinhamento do texto como centralizado */
+    
+}
+
+/* Adicione o estilo para o modal */
+.modal {
+    display: none; /* Define o modal como oculto por padrão */
+    position: fixed; /* Define a posição do modal como fixa */
+    z-index: 1; /* Define o índice de empilhamento do modal como 1 */
+    left: 0; /* Define a posição do modal como na esquerda da tela */
+    top: 0; /* Define a posição do modal como no topo da tela */
+    width: 100%; /* Define a largura do modal como 100% da tela */
+    height: 100%; /* Define a altura do modal como 100% da tela */
+    overflow: auto; /* Define o estouro do modal como automático */
+    background-color: rgba(0, 0, 0, 0.8); /* Define a cor de fundo do modal como preta com 80% de opacidade */
+    
+}
+
+.modal-content {
+    margin: auto; /* Define a margem da imagem ampliada como automática */
+    display: block; /* Define a exibição da imagem ampliada como em bloco */
+    width: 80%; /* Define a largura da imagem ampliada como 80% do modal */
+    max-width: 700px; /* Define a largura máxima da imagem ampliada como 700px */
+}
+
+.close {
+    position: absolute; /* Define a posição do botão de fechar como absoluta */
+    top: 15px; /* Define a posição do botão de fechar como 15px do topo do modal */
+    right: 35px; /* Define a posição do botão de fechar como 35px da direita do modal */
+    color: white; /* Define a cor do botão de fechar como branca */
+    font-size: 40px; /* Define o tamanho da fonte do botão de fechar como 40px */
+    font-weight: bold; /* Define o peso da fonte do botão de fechar como negrito */
+    transition: 0.3s; /* Define a transição do botão de fechar como 0.3s */
+}
+
+.close:hover, .close:focus {
+    color: red; /* Define a cor do botão de fechar como vermelha ao passar o mouse ou ao focar */
+    text-decoration: none; /* Remove o sublinhado do botão de fechar */
+    cursor: pointer; /* Define o cursor como um ponteiro ao passar o mouse */
+}
+
+@media (min-width: 1024px) {
+    /* Adicione o estilo para a grade de imagens */ 
+    .grid-container {
+        display: grid; /* Define o contêiner como uma grade */
+        grid-template-columns: repeat(4, 1fr); /* Define as colunas da grade como cinco colunas iguais */
+        grid-gap: 20px; /* Define o espaçamento entre as imagens */
+        padding: 20px; /* Define o preenchimento do contêiner */
+        margin: 0 auto; /* Centraliza o contêiner na tela */
+        /*max-width: 1024px; /* Define a largura máxima do contêiner */
+    }
+}
+
+ /* CSS para a imagem "voltar" */
+.voltar {
+    position: absolute;
+    top: 120px;
+    left: 15px;
+    margin-left: 15px;
+    max-width: 50px;
+}
+
+/* CSS para a imagem "idcarta1" */
+#carta1 {
+    margin-top: 50px; /* 50px abaixo da imagem "voltar" */
+    margin-left: 30%;
+}
+
+/* CSS para o formulário */
+#form-carta {
+    margin-top: 20px; /* Espaço entre a imagem "idcarta1" e o formulário */
+}
+
+#form-adotar {
+    font-family: Arial, sans-serif; /* Fonte do formulário */
+    max-width: 400px;
+    margin: 0 auto; /* Centraliza o formulário na página */
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#form-adotar label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#form-adotar input[type="text"],
+#form-adotar input[type="tel"],
+#form-adotar input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#form-adotar button {
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Adicione esta regra CSS ao seu arquivo de estilo */
+.cartinha-adotada {
+    position: relative;
+}
+
+.cartinha-adotada::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./Cartinha\ Adotada.png');
+    background-size: cover;
+    pointer-events: none; /* Garante que a imagem adotada não interfere com a interação do usuário */
+}
+.grid-item {
+    position: relative;
+}
+
+.carta-adotada {
+    position: absolute;
+    top: 15px;
+    left: 62px;
+    width: 100px;
+    height: 100px;
+    opacity: 0.7; /* Ajuste a opacidade conforme necessário */
+}

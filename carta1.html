@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="./script.js"></script>
+    <title>Crea JR. - Cartinhas de Natal</title>
+</head>
+<body>
+    <header>
+        <!-- <h1 class="titulo">Crea JR. - Cartinhas de Natal</h1>-->
+        <img class="creaft" id="fotonav" src="./crea.png">
+        <nav class="navegacao">
+            <ul><a href="./index.html">Inicio</a></ul>
+            <ul><a href="./cartinhas.html">Cartinhas</a></ul>
+            <ul><a href="./doacoes.html">Doações</a></ul>
+        </nav>
+        <div class="crea">
+            <!--<img class="creaft" src="./crea.png">-->
+        </div>
+    </header>
+    <a href="./cartinhas.html">
+        <img class="voltar" src="./voltar.png">
+    </a>
+
+    <img id="carta1" src="./crea.png">
+
+    <!-- Cria um elemento para exibir o formulário -->
+    <div id="form-carta" class="form-content">
+        <form id="form-adotar" action="adotar.php" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+            <label for="endereco">Endereço para retirada do presente:</label>
+            <input type="text" id="endereco" name="endereco" required>
+            <label for="entrega">Quero entregar o presente pessoalmente:</label>
+            <input type="checkbox" id="entrega" name="entrega">
+            <button type="submit" class="adotar">Adotar</button>
+        </form>
+    </div>
+
+</body>
+
+<!-- Script JavaScript, se necessário -->
+<script>
+
+</script>
+</html>

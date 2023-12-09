@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="./script.js"></script>
+    <title>Crea JR. - Cartinhas de Natal</title>
+</head>
+<body>
+    <header>
+        <!-- <h1 class="titulo">Crea JR. - Cartinhas de Natal</h1>-->
+        <img class="creaft" id="fotonav" src="./crea.png">
+        <nav class="navegacao">
+            <ul><a href="./index.html">Inicio</a></ul>
+            <ul><a href="./cartinhas.html">Cartinhas</a></ul>
+            <ul><a href="./doacoes.html">Doações</a></ul>
+        </nav>
+        <div class="crea">
+            <!--<img class="creaft" src="./crea.png">-->
+        </div>
+    </header>
+    
+    <div class="adote">
+        <img class="ftpapainoel" src="./papainoelsemfundo.png">
+        <h1 class="blinking adote-text">Adote uma cartinha</h1>
+    </div>
+
+    <div class="main1">
+        <h1 class="tituloh1">Cartinhas Disponíveis:</h1>
+        
+        <!-- Cria um contêiner para a grade de imagens -->
+        <div class="grid-container">
+            <!-- Cria um elemento para cada imagem e texto -->
+            <div class="grid-item" data-target="./carta1.html">
+                <img class="cartas" src="./carta.png" data-src="./carta-1.png" alt="Carta 1" onclick="redirectToPage(this)">
+                <img class="carta-adotada" src="./Cartinha Adotada.png" alt="Carta Adotada" id="cartaAdotada1">
+                <p class="texto">Cartinha 1 <br> Criança: <br> Presente:</p>
+            </div>
+            <div class="grid-item" data-target="./carta2.html">
+                <img class="cartas" src="./carta.png" alt="Carta 2" onclick="redirectToPage(this)">
+                <p class="texto">Cartinha 2 <br> Crinaça: <br> Presente: </p>
+            </div>
+            <div class="grid-item" data-target="./carta3.html">
+                <img class="cartas" src="./carta.png" alt="Carta 3" onclick="redirectToPage(this)">
+                <p class="texto">Cartinha 3<br> Crinaça: <br> Presente:</p>
+            </div>
+            <div class="grid-item" data-target="./carta4.html">
+                <img class="cartas" src="./carta.png" alt="Carta 4" onclick="redirectToPage(this)">
+                <p class="texto">Cartinha 4<br> Crinaça: <br> Presente:</p>
+            </div>
+            <div class="grid-item" data-target="./carta5.html">
+                <img class="cartas" src="./carta.png" alt="Carta 5" onclick="redirectToPage(this)">
+                <p class="texto">Cartinha 5<br> Crinaça: <br> Presente:</p>
+            </div>
+            <div class="grid-item" data-target="./carta6.html">
+                <img class="cartas" src="./carta.png" alt="Carta 6" onclick="redirectToPage(this)">
+                <p class="texto">Cartinha 6<br> Crinaça: <br> Presente:</p>
+            </div>
+            <div class="grid-item" data-target="./carta7.html">
+                <img class="cartas" src="./carta.png" alt="Carta 7" onclick="redirectToPage(this)">
+                <p class="texto">Cartinha 7<br> Crinaça: <br> Presente:</p>
+            </div>
+            <div class="grid-item" data-target="./carta8.html">
+                <img class="cartas" src="./carta.png" alt="Carta 8" onclick="redirectToPage(this)">
+                <p class="texto">Cartinha 8<br> Crinaça: <br> Presente:</p>
+            </div>
+            <div class="grid-item" data-target="./carta9.html">
+                <img class="cartas" src="./carta.png" alt="Carta 9" onclick="redirectToPage(this)">
+                <p class="texto">Cartinha 9<br> Crinaça: <br>Presente:</p>
+            </div>
+
+            <!-- Adicione mais elementos conforme necessário -->
+        </div>
+        
+    </div>
+
+    <script>
+        function exibirImagemAdotada(numeroCartinha) {
+            // Encontrar o elemento da cartinha adotada pelo número
+            const gridItem = document.querySelector(`.grid-item[data-cartinha="${numeroCartinha}"]`);
+
+            // Verificar se o elemento foi encontrado
+            if (gridItem) {
+                // Ocultar a imagem da cartinha
+                const cartaImage = gridItem.querySelector('.cartas');
+                cartaImage.style.display = 'none';
+
+                // Exibir a imagem adotada
+                const adotadaImage = gridItem.querySelector('.imagem-adotada');
+                adotadaImage.style.display = 'block';
+            }
+        }
+
+        // Adiciona uma função para redirecionar para a página específica ao clicar na carta
+        function redirectToPage(element) {
+            const targetPage = element.parentNode.getAttribute("data-target");
+            const numeroCartinha = element.parentNode.getAttribute("data-cartinha");
+
+            // Chama a função para exibir a imagem adotada
+            exibirImagemAdotada(numeroCartinha);
+
+            // Redireciona para a página específica
+            window.location.href = targetPage;
+        }
+    </script>
+    
